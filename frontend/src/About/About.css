@@ -1,0 +1,24 @@
+.aboutBackground {
+    background-color: #222;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aboutHeaderContainer {
+    display: flex;
+    width: 90%;
+
+}
+
+.aboutHeaderIntroduction {
+    width: 60%;
+    color: #CCC;
+    text-align: left;
+}
+
+.aboutHeaderImage {
+    width: 40%;
+}
