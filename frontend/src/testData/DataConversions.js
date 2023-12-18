@@ -264,3 +264,30 @@ const convertToHundrethsAndAddSuffix = (str) => {
   const num = Number(str)
   return Number(num.toFixed(2))
 }
+
+export const getMockAnalystData = (symbol) => {
+  const result = {
+    date: "2023-12-01",
+    graphData: [{
+      option: "strongBuy",
+      value: 8
+    },
+    {
+      option: "buy",
+      value: 10
+    },
+    {
+      option: "hold",
+      value: 13
+    },
+    {
+      option: "sell",
+      value: 5
+    },
+    {
+      option: "strongSell",
+      value: 2
+    }]
+  }
+  return result
+}

@@ -1,4 +1,4 @@
-import { getFakeMarketData, getFakeInsiderData, getFakeInsiderNames, getMarketDatafromProfit, convertTwelveDataQuoteData, mockConvertTwelveDataQuoteData } from "./DataConversions"
+import { getFakeMarketData, getFakeInsiderData, getFakeInsiderNames, getMarketDatafromProfit, convertTwelveDataQuoteData, mockConvertTwelveDataQuoteData, getMockAnalystData } from "./DataConversions"
 const basePath = "https://finnhub.io/api/v1"
 const apiKey = "cj006i1r01qlkaevun50cj006i1r01qlkaevun5g"
 
@@ -121,4 +121,9 @@ export const getStockQuote = async(symbol) => {
     const result = mockConvertTwelveDataQuoteData(symbol)
     return result
 
+}
+
+export const getAnalystRecommendation = async(symbol) => {
+    const result = getMockAnalystData(symbol)
+    return result
 }

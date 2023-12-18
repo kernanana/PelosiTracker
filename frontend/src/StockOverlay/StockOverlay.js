@@ -4,8 +4,10 @@ import msft_logo from '../Images/msft_logo.png'
 import aapl_logo from '../Images/aapl_logo.png'
 import nvda_logo from '../Images/nvda_logo.png'
 import meta_logo from '../Images/meta_logo.png'
+import React,{ memo } from 'react'
 
-function StockOverlay() {
+const StockOverlay = React.memo(() =>  {
+    console.log("StockOverlay Rendered");
     const stockNews1 = {
         newsHeader: "MSFT",
         logoImage: msft_logo
@@ -31,6 +33,6 @@ function StockOverlay() {
             <StockNews newsData={stockNews4}></StockNews>
         </div>
     )
-}
+})
 
 export default StockOverlay
