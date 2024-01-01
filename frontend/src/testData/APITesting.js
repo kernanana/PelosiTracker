@@ -3,6 +3,7 @@ import { getFakeMarketData, mockConvertTwelveDataQuoteData, getMockAnalystData, 
 const basePath = "https://finnhub.io/api/v1"
 const apiKey = "cj006i1r01qlkaevun50cj006i1r01qlkaevun5g"
 
+const useTestData = true
 
 export const searchSymbols = async(query) => {
     const url = `${basePath}/search?q=${query}&token=${apiKey}`
@@ -19,10 +20,21 @@ export const searchSymbols = async(query) => {
 }
 
 export const getInfoOnSymbol = async(symbol, fromDate) => {
-    const result = getFakeMarketData(symbol, fromDate)
-    // const result = await getMarketDatafromProfit(symbol, fromDate)
-    console.log("new stock datapoints", result);
-    return result
+    if (useTestData) {
+        const result = getFakeMarketData(symbol, fromDate)
+        console.log("new stock datapoints", result);
+        return result
+    }
+    
+    try {
+        const result = await getMarketDatafromProfit(symbol, fromDate)
+        console.log("new stock datapoints", result);
+        return result
+    } catch {
+        console.log("error getting graph data");
+        return {}
+    }
+    
 }
 
 // export const searchInsiderInfo = async(symbol, fromDate) => {
@@ -49,74 +61,78 @@ export const getInfoOnSymbol = async(symbol, fromDate) => {
 // }
 
 export const getInsiderSentiment = async(symbol) => {
-    // const url = `${basePath}/stock/insider-sentiment?symbol=${symbol}&from=2022-12-12&token=${apiKey}`
-    // console.log("using this api call:", url);
-    // const response = await fetch(url)
+    if(useTestData) {
+        const result = getMockInsiderSentiments(symbol)
+        return result
+    }
 
-    // if (!response.ok) {
-    //     // const message = `Error: ${response.status}`
-    //     // throw new Error(message)
-    //     const errData = {
-    //         dateRecorded: "No Recent Sentiments Found",
-    //         mspr: "-",
-    //         netChange: "-" 
-    //     }
-    //     return errData
-    // }
+    const url = `${basePath}/stock/insider-sentiment?symbol=${symbol}&from=2022-12-12&token=${apiKey}`
+    console.log("using this api call:", url);
+    const response = await fetch(url)
 
-    // const results = await response.json()
-    // try {
-    //     if (results["data"].length > 0) {
-    //         const recent = results["data"].pop()
-    //         console.log("Most recent insider sentiment:", recent);
-    //         const result = {
-    //             dateRecorded: recent.year + "-" + recent.month,
-    //             mspr: recent.mspr,
-    //             netChange: recent.change
-    //         }
-    //         return result
-    //     } else {
-    //         throw Error
-    //     }
-    // } catch (err) {
-    //     const errData = {
-    //         dateRecorded: "No Recent Sentiments Found",
-    //         mspr: "-",
-    //         netChange: "-" 
-    //     }
-    //     return errData
-    // }
-    const result = getMockInsiderSentiments(symbol)
-    return result
+    if (!response.ok) {
+        const errData = {
+            dateRecorded: "No Recent Sentiments Found",
+            mspr: "-",
+            netChange: "-" 
+        }
+        return errData
+    }
+
+    const results = await response.json()
+    try {
+        if (results["data"].length > 0) {
+            const recent = results["data"].pop()
+            console.log("Most recent insider sentiment:", recent);
+            const result = {
+                dateRecorded: recent.year + "-" + recent.month,
+                mspr: recent.mspr,
+                netChange: recent.change
+            }
+            return result
+        } else {
+            throw Error
+        }
+    } catch (err) {
+        const errData = {
+            dateRecorded: "No Recent Sentiments Found",
+            mspr: "-",
+            netChange: "-" 
+        }
+        return errData
+    }
 }
 
 export const getStockQuote = async(symbol) => {
-    // try {
-    //     const twelveDataKey = '74a6354a508c46b1a0178a88d04fa449'
-    //     const url = `https://api.twelvedata.com/quote?symbol=AAPL&apikey=${twelveDataKey}`
-    //     console.log("using this api call:", url);
-    //     const response = await fetch(url)
+    if(useTestData || true) {
+        const result = mockConvertTwelveDataQuoteData(symbol)
+        return result
+    }
+
+    try {
+        const twelveDataKey = '74a6354a508c46b1a0178a88d04fa449'
+        const url = `https://api.twelvedata.com/quote?symbol=AAPL&apikey=${twelveDataKey}`
+        console.log("using this api call:", url);
+        const response = await fetch(url)
     
-    //     if (!response.ok) {
-    //         const message = `Error: ${response.status}`
-    //         throw new Error(message)
-    //     }
+        if (!response.ok) {
+            const message = `Error: ${response.status}`
+            throw new Error(message)
+        }
     
-    //     const result = await response.json()
-    //     console.log(`twelveData for ${symbol} eod`, result);
-    //     const reorganizeResult = convertTwelveDataQuoteData(result)
-    //     return reorganizeResult
-    // } catch {
-    //     const errResult = {
-    //         symbol: symbol,
-    //         value: "$-",
-    //         change: "-",
-    //         percentChange: "-"
-    //     }
-    //     return errResult
-    // }
-    const result = mockConvertTwelveDataQuoteData(symbol)
-    return result
+        const result = await response.json()
+        console.log(`twelveData for ${symbol} eod`, result);
+        const reorganizeResult = convertTwelveDataQuoteData(result)
+        return reorganizeResult
+    } catch {
+        const errResult = {
+            symbol: symbol,
+            value: "$-",
+            change: "-",
+            percentChange: "-"
+        }
+        return errResult
+    }
 
 }
 
