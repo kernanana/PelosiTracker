@@ -20,31 +20,7 @@ export const reorganizeProfitCOMData = (rawData) => {
     return output
 }
 
-export const getFakeMarketData = (fromDate) => {
-    var data = {
-      "2023-11-27": 1400,
-      "2023-11-28": 1506,
-      "2023-11-29": 989,
-      "2023-11-30": 1228,
-      "2023-12-1": 1100,
-      "2023-12-2": 1700
-    }
-    if (fromDate === "2W") {
-      data = {
-        "2023-11-27": 1400,
-        "2023-11-28": 1506,
-        "2023-11-29": 989,
-        "2023-11-30": 1228,
-        "2023-12-01": 1100,
-        "2023-12-02": 1700,
-        "2023-12-03": 989,
-        "2023-12-04": 1228,
-        "2023-12-05": 1110,
-        "2023-12-06": 1700
-      }
-    }
-    return data
-}
+
 
 export const formatFromDateForProfitAPI = (fromDate) => {
   let a = new Date();
@@ -95,69 +71,6 @@ export const getMarketDatafromProfit = async(symbol, fromDate) => {
     console.log(jsonResponse);
     const result = reorganizeProfitCOMData(jsonResponse)
     return result
-}
-
-export const getFakeInsiderNames = (date) => {
-  let data = {
-    "count": 2,
-    "result":
-    [{
-      "name": "insider1"
-    },
-    {
-      "name": "insider2"
-    }
-    ]
-  } 
-  if (date === "2W") {
-    data = {
-      "count": 4,
-      "result":
-      [{
-        "name": "insider1"
-      },
-      {
-        "name": "insider2"
-      },
-      {
-        "name": "insider3"
-      },
-      {
-        "name": "insider4"
-      }
-      ]
-    }
-  }
-  return data
-}
-
-export const getFakeInsiderData = (insiderName, stockName, fromDate) => {
-  let data =  {
-    "2023-11-29": {
-      buy: 400,
-    },
-    "2023-12-2": {
-      sell: 300
-    }
-  }
-  if (fromDate === "2W") {
-    data =  {
-      "2023-11-29": {
-        buy: 400,
-      },
-      "2023-12-3": {
-        sell: 300
-      },
-      "2023-12-4": {
-        buy: 100
-      },
-      "2023-12-6": {
-        buy: 600,
-        sell: 100
-      }
-    }
-  }
-  return data
 }
 
 
@@ -215,79 +128,10 @@ export const convertTwelveDataQuoteData = (data) => {
 
 }
 
-export const mockConvertTwelveDataQuoteData = (symbol) => {
-  let fakeStockQuote = {
-    symbol: symbol,
-    value: "-",
-    change: "-",
-    percentChange: "-"
-  }
-  if (symbol === "MSFT") {
-    fakeStockQuote = {
-      symbol: symbol,
-      value: "370.9900",
-      change: "5.0600",
-      percentChange: "1.3800"
-    }
-  }
-  else if  (symbol === "NVDA") {
-    fakeStockQuote = {
-      symbol: symbol,
-      value: "490.8000",
-      change: "7.3000",
-      percentChange: "1.5100"
-    }
-  }
-  else if  (symbol === "AAPL") {
-    fakeStockQuote = {
-      symbol: symbol,
-      value: "197.5600",
-      change: "-.5600",
-      percentChange: "-0.2800"
-    }
-  }
-  else if  (symbol === "META") {
-    fakeStockQuote = {
-      symbol: symbol,
-      value: "335.9000",
-      change: "2.6100",
-      percentChange: "0.7800"
-    }
-  }
-  fakeStockQuote.value = convertToHundrethsAndAddSuffix(fakeStockQuote.value)
-  fakeStockQuote.change = convertToHundrethsAndAddSuffix(fakeStockQuote.change)
-  fakeStockQuote.percentChange = convertToHundrethsAndAddSuffix(fakeStockQuote.percentChange)
-  return fakeStockQuote
-}
 
-const convertToHundrethsAndAddSuffix = (str) => {
+
+export const convertToHundrethsAndAddSuffix = (str) => {
   const num = Number(str)
   return Number(num.toFixed(2))
 }
 
-export const getMockAnalystData = (symbol) => {
-  const result = {
-    date: "2023-12-01",
-    graphData: [{
-      option: "strongBuy",
-      value: 8
-    },
-    {
-      option: "buy",
-      value: 10
-    },
-    {
-      option: "hold",
-      value: 13
-    },
-    {
-      option: "sell",
-      value: 5
-    },
-    {
-      option: "strongSell",
-      value: 2
-    }]
-  }
-  return result
-}

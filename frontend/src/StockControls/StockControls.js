@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import {formatFromDateForProfitAPI} from '../testData/DataConversions.js'
 
 function StockControls({stockTicker, stockName, currentValue, setstockTicker, timelineOption,
-    setStockGraphData, setTimelineOption, setInsiderName, setInsiderGraphData, setStockName}) {
+    setStockGraphData, setTimelineOption, setStockName}) {
     const [reformattedFromDate, setReformattedFromDate] = useState("-")
     
     useEffect(() => {
@@ -28,16 +28,13 @@ function StockControls({stockTicker, stockName, currentValue, setstockTicker, ti
                                         timelineOption={timelineOption}
                                         setTimelineOption={setTimelineOption}
                                         setStockGraphData={setStockGraphData}
-                                        setInsiderName={setInsiderName}
-                                        setInsiderGraphData={setInsiderGraphData}></TimelineOptions>
+                        ></TimelineOptions>
                         <div className="preventSearchResultOverflow2"> </div>
                         <div>
                         <StockSearch ticker={stockTicker}
                                     timelineOption={timelineOption}
                                     setTicker={setstockTicker}
                                     setStockGraphData={setStockGraphData}
-                                    setInsiderName={setInsiderName}
-                                    setInsiderGraphData={setInsiderGraphData}
                                     setStockName={setStockName}
                         ></StockSearch>
                         </div>

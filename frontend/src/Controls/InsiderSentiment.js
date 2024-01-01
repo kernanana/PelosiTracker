@@ -10,6 +10,35 @@ function InsiderSentiment({currentStock}) {
         mspr: "-",
         netChange: "-" 
     })
+    const [valueColors, setValueColors] = useState({
+        dateRecorded: null,
+        mspr: null,
+        netChange: null
+    })
+
+    useEffect(() => {
+        changeColorValues()
+    }, [insiderSentiments])
+
+    const changeColorValues = () => {
+        const newColors = { ...valueColors };
+
+        if (insiderSentiments.mspr === "-") {
+            newColors.mspr = null;
+        } else {
+            const num = Number(insiderSentiments.mspr);
+            newColors.mspr = num >= 0;
+        }
+
+        if (insiderSentiments.netChange === "-") {
+            newColors.netChange = null;
+        } else {
+            const num = Number(insiderSentiments.netChange);
+            newColors.netChange = num >= 0;
+        }
+
+        setValueColors(newColors);
+    }
 
     const getAndUpdateInsiderSentiments = async() => {
         if (currentStock && !(currentStock === "-")) {
@@ -29,8 +58,8 @@ function InsiderSentiment({currentStock}) {
             </div>
             <div className='insiderItemContainer insiderInfoContainer'>
                 <InsiderInfoRow name="Date of Recording" value={insiderSentiments.dateRecorded} positive={null}></InsiderInfoRow>
-                <InsiderInfoRow name="Monthly Share Purchase Ratio" value={insiderSentiments.mspr} positive={true}></InsiderInfoRow>
-                <InsiderInfoRow name="Net Insider Share Change" value={insiderSentiments.netChange} positive={false}></InsiderInfoRow>
+                <InsiderInfoRow name="Monthly Share Purchase Ratio" value={insiderSentiments.mspr} positive={valueColors.mspr}></InsiderInfoRow>
+                <InsiderInfoRow name="Net Insider Share Change" value={insiderSentiments.netChange} positive={valueColors.netChange}></InsiderInfoRow>
             </div>
         </div>
     )

@@ -6,31 +6,51 @@ import nvda_logo from '../Images/nvda_logo.png'
 import meta_logo from '../Images/meta_logo.png'
 import React,{ memo } from 'react'
 
-const StockOverlay = React.memo(() =>  {
+const StockOverlay = React.memo(({setstockTicker, setStockName, timelineOption, setStockGraphData}) =>  {
     console.log("StockOverlay Rendered");
     const stockNews1 = {
         newsHeader: "MSFT",
+        fullName: "MICROSOFT CORP",
         logoImage: msft_logo
     }
     const stockNews2 = {
         newsHeader: "NVDA",
+        fullName: "NVIDIA CORP",
         logoImage: nvda_logo
     }
     const stockNews3 = {
         newsHeader: "AAPL",
+        fullName: "APPLE INC",
         logoImage: aapl_logo
     }
     const stockNews4 = {
         newsHeader: "META",
+        fullName: "META PLATFORMS INC-CLASS A",
         logoImage: meta_logo
     }
 
     return (
         <div className='overlayContainer'>
-            <StockNews newsData={stockNews1}></StockNews>
-            <StockNews newsData={stockNews2}></StockNews>
-            <StockNews newsData={stockNews3}></StockNews>
-            <StockNews newsData={stockNews4}></StockNews>
+            <StockNews newsData={stockNews1}
+                    setstockTicker={setstockTicker} 
+                    setStockName={setStockName} 
+                    timelineOption={timelineOption}
+                    setStockGraphData={setStockGraphData}></StockNews>
+            <StockNews newsData={stockNews2}
+                    setstockTicker={setstockTicker} 
+                    setStockName={setStockName} 
+                    timelineOption={timelineOption}
+                    setStockGraphData={setStockGraphData}></StockNews>
+            <StockNews newsData={stockNews3}
+                    setstockTicker={setstockTicker} 
+                    setStockName={setStockName} 
+                    timelineOption={timelineOption}
+                    setStockGraphData={setStockGraphData}></StockNews>
+            <StockNews newsData={stockNews4}
+                    setstockTicker={setstockTicker} 
+                    setStockName={setStockName} 
+                    timelineOption={timelineOption}
+                    setStockGraphData={setStockGraphData}></StockNews>
         </div>
     )
 })

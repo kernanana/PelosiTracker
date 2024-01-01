@@ -43,7 +43,7 @@ function AnalystRecommendation({currentStock}) {
 
     return (
         <div className='insiderContainer insiderSearchContainer'>
-            <div className='insiderHeader'>Fiduciary Advice</div>
+            <div className='insiderHeader'>Analyst Sentiments</div>
             <div className='insiderItemContainer insiderInfoContainer'>
             <ResponsiveContainer width="100%" height="100%">
                 <BarChart
@@ -58,7 +58,7 @@ function AnalystRecommendation({currentStock}) {
                 }}
                 >
                 <XAxis dataKey="option" />
-                {/* <Tooltip /> */}
+                <Tooltip cursor={{fill: '#111'}}/>
                 <Bar dataKey="value"  >
                     {graphData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={colors[index]} />

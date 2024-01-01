@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import InsiderSearchResults from "./ControlSearchResults"
-import { searchInsiderInfo } from "../testData/APITesting";
 import { IoIosSearch } from "react-icons/io";
 import { IconContext } from "react-icons/lib";
 
@@ -22,9 +21,9 @@ const InsiderSearch = ({currentStock, timelineOption, setInsiderName, setInsider
         console.log("updating search dropdown");
         try {
             if (input && currentStock) {
-                const searchResults = await searchInsiderInfo(currentStock, timelineOption)
-                const result = searchResults.result
-                setBestMatches(result)
+                // const searchResults = await searchInsiderInfo(currentStock, timelineOption)
+                // const result = searchResults.result
+                // setBestMatches(result)
             }
         }
         catch(error){

@@ -1,10 +1,8 @@
 import './TimelineOptions.css';
 import { getInfoOnSymbol } from '../testData/APITesting';
 
-function TimelineOptions ({ticker, timelineOption, setTimelineOption, setStockGraphData, setInsiderName, setInsiderGraphData}) {
+function TimelineOptions ({ticker, timelineOption, setTimelineOption, setStockGraphData, setInsiderName}) {
     const updateTimeLineAndGraphData = async(timeOption) => {
-        setInsiderGraphData([])
-        setInsiderName("")
         setTimelineOption(timeOption)
         if (ticker) {
             const newGraphData = await getInfoOnSymbol(ticker, timeOption)

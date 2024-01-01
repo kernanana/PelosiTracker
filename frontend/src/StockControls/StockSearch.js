@@ -14,7 +14,7 @@ import { IoIosSearch } from "react-icons/io";
 //     ]
 // }
 
-const Search = ({ticker, timelineOption, setTicker, setStockGraphData, setInsiderName, setInsiderGraphData, setStockName}) => {
+const Search = ({ticker, timelineOption, setTicker, setStockGraphData, setStockName}) => {
     const [input, setInput] = useState("")
     const [bestMatches, setBestMatches] = useState([])
     const clear = () => {
@@ -45,8 +45,6 @@ const Search = ({ticker, timelineOption, setTicker, setStockGraphData, setInside
     }
 
     const updateTicker = (newTicker, fullName) => {
-        setInsiderName("")
-        setInsiderGraphData([])
         setTicker(newTicker)
         setStockName(fullName)
         clear()

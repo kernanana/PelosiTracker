@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './StockOverlay.css';
-import { getStockQuote } from '../testData/APITesting';
+import { getInfoOnSymbol, getStockQuote } from '../testData/APITesting';
 
-function StockNews({ newsData }) {
+function StockNews({ newsData , setstockTicker, setStockName, timelineOption, setStockGraphData}) {
   const [stockQuote, setStockQuote] = useState({
     symbol: '-',
     value: '-',
@@ -12,15 +12,19 @@ function StockNews({ newsData }) {
 
   const [loading, setLoading] = useState(true);
 
-  const setGraphDataToNewStock = () => {
+  const setGraphDataToNewStock = async() => {
+    setstockTicker(stockQuote.symbol)
+    setStockName(newsData.fullName)
     console.log('set graph to', newsData.newsHeader);
+    const newGraphData = await getInfoOnSymbol(stockQuote.symbol, timelineOption)
+    setStockGraphData(newGraphData)
   };
 
   useEffect(() => {
     const fetchStockData = async () => {
       try {
-        const response = await getStockQuote(newsData.newsHeader);
-        setStockQuote(response);
+        const quoteResponse = await getStockQuote(newsData.newsHeader);
+        setStockQuote(quoteResponse);
       } finally {
         setLoading(false);
       }
@@ -57,7 +61,7 @@ function StockNews({ newsData }) {
           {stockQuote.change === '-' ? (
             <div className="overlayPriceChangeValue">${stockQuote.change}</div>
           ) : stockQuote.change >= 0 ? (
-            <div className="overlayPriceChangeValue">${stockQuote.change}</div>
+            <div className="overlayPriceChangeValue">+${stockQuote.change}</div>
           ) : (
             <div className="negativeValue overlayPriceChangeValue">
               -${stockQuote.change * -1}
@@ -66,7 +70,7 @@ function StockNews({ newsData }) {
           {stockQuote.percentChange === '-' ||
           stockQuote.percentChange >= 0 ? (
             <div className="overlayPriceChangePercent">
-              {stockQuote.percentChange}%
+              +{stockQuote.percentChange}%
             </div>
           ) : (
             <div className="negativeValue overlayPriceChangePercent">

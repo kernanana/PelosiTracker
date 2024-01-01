@@ -1,4 +1,5 @@
-import { getFakeMarketData, getFakeInsiderData, getFakeInsiderNames, getMarketDatafromProfit, convertTwelveDataQuoteData, mockConvertTwelveDataQuoteData, getMockAnalystData } from "./DataConversions"
+import {getFakeInsiderData, getMarketDatafromProfit, convertTwelveDataQuoteData } from "./DataConversions"
+import { getFakeMarketData, mockConvertTwelveDataQuoteData, getMockAnalystData, getMockInsiderSentiments } from "./testData"
 const basePath = "https://finnhub.io/api/v1"
 const apiKey = "cj006i1r01qlkaevun50cj006i1r01qlkaevun5g"
 
@@ -18,34 +19,34 @@ export const searchSymbols = async(query) => {
 }
 
 export const getInfoOnSymbol = async(symbol, fromDate) => {
-    const result = getFakeMarketData(fromDate)
+    const result = getFakeMarketData(symbol, fromDate)
     // const result = await getMarketDatafromProfit(symbol, fromDate)
     console.log("new stock datapoints", result);
     return result
 }
 
-export const searchInsiderInfo = async(symbol, fromDate) => {
-    // const url = `${basePath}/stock/insider-transactions?symbol=TSLA&from=${fromDate}&token=${apiKey}`
-    // console.log(url);
-    // const url = `${basePath}/stock/insider-transactions?symbol=TSLA&token=${apiKey}`
-    // const response = await fetch(url)
+// export const searchInsiderInfo = async(symbol, fromDate) => {
+//     // const url = `${basePath}/stock/insider-transactions?symbol=TSLA&from=${fromDate}&token=${apiKey}`
+//     // console.log(url);
+//     // const url = `${basePath}/stock/insider-transactions?symbol=TSLA&token=${apiKey}`
+//     // const response = await fetch(url)
 
-    // if (!response.ok) {
-    //     const message = `Error: ${response.status}`
-    //     throw new Error(message)
-    // }
+//     // if (!response.ok) {
+//     //     const message = `Error: ${response.status}`
+//     //     throw new Error(message)
+//     // }
 
-    // return await response.json()
-    const result = getFakeInsiderNames(fromDate)
-    console.log("new insider names", result);
-    return result
-}
+//     // return await response.json()
+//     const result = getFakeInsiderNames(fromDate)
+//     console.log("new insider names", result);
+//     return result
+// }
 
-export const getInfoOnInsider = async(insiderName, stockName, fromDate) => {
-    const result = getFakeInsiderData(insiderName, stockName, fromDate)
-    console.log("new insider data", result);
-    return result
-}
+// export const getInfoOnInsider = async(insiderName, stockName, fromDate) => {
+//     const result = getFakeInsiderData(insiderName, stockName, fromDate)
+//     console.log("new insider data", result);
+//     return result
+// }
 
 export const getInsiderSentiment = async(symbol) => {
     // const url = `${basePath}/stock/insider-sentiment?symbol=${symbol}&from=2022-12-12&token=${apiKey}`
@@ -85,12 +86,8 @@ export const getInsiderSentiment = async(symbol) => {
     //     }
     //     return errData
     // }
-    const errData = {
-        dateRecorded: "2023-12",
-        mspr: "2.345",
-        netChange: "-4005" 
-    }
-    return errData
+    const result = getMockInsiderSentiments(symbol)
+    return result
 }
 
 export const getStockQuote = async(symbol) => {

@@ -1,0 +1,40 @@
+.experienceContainer {
+    height: 40%;
+    width: 60%;
+    margin: auto;
+    margin-top: 3%;
+    font-family: Tahoma, sans-serif;
+    text-align: left;
+}
+
+.experienceHeader {
+    color: #CCC;
+    font-size: 20px;
+}
+
+.experienceBody {
+    color: #CCC;
+    font-size: 18px;
+}
+
+.experienceBulletList {
+    font-size: 18px;
+    color: #BBB;
+    text-align: left;
+    list-style-type: disc
+}
+
+.experienceBullet {
+    margin-bottom: 1%;
+}
+
+.textLink {
+    color: #FFA500;
+    margin: 1px;
+}
+
+.textLink:hover {
+    color: #ff7b00;
+    border: dashed 1px;
+    margin: 0px;
+}
