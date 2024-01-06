@@ -128,6 +128,20 @@ export const convertTwelveDataQuoteData = (data) => {
 
 }
 
+export const convertFinnhubQuoteData = (symbol, data) => {
+  try {
+    const result = {
+      symbol: symbol,
+      value: data.c,
+      change: data.d,
+      percentChange: data.dp
+    }
+    return result
+  } catch (err) {
+    throw new Error
+  }
+}
+
 
 
 export const convertToHundrethsAndAddSuffix = (str) => {
@@ -135,3 +149,68 @@ export const convertToHundrethsAndAddSuffix = (str) => {
   return Number(num.toFixed(2))
 }
 
+export const getAnalystRecommendationFromFinnhub = async(symbol) => {
+  const finnhubAPIKey = 'cj006i1r01qlkaevun50cj006i1r01qlkaevun5g'
+  const url =`https://finnhub.io/api/v1/stock/recommendation?symbol=${symbol}&token=${finnhubAPIKey}`
+  console.log(url);
+  const response = await fetch(url, 
+    {"Access-Control-Allow-Origin": "*"});
+  if (!response.ok) {
+      const message = `Error: ${response.status}`
+      throw new Error(message)
+  }
+  const jsonResponse = await response.json()
+  console.log(jsonResponse);
+  const result = reorganizeAnalystSentimentsFromFinnhub(jsonResponse)
+  return result
+}
+
+export const formatYYYYMMDDFrom1YearAgo = () => {
+  let a = new Date();
+  a.setFullYear(a.getFullYear - 1)
+  let year = a.getFullYear();
+  let month = a.getMonth() + 1
+  let day = a.getDate()
+  let finalDate = year + '-' + month + '-' + day
+  return finalDate
+}
+
+const reorganizeAnalystSentimentsFromFinnhub = (data) => {
+  let result = {}
+  const mostRecentReport = data[0]
+  result["date"] = mostRecentReport.period
+  let graphData = []
+  if ("strongBuy" in mostRecentReport) {
+    graphData.push({
+      option: "strongBuy",
+      value: mostRecentReport["strongBuy"]
+    })
+  }
+  if ("buy" in mostRecentReport) {
+    graphData.push({
+      option: "buy",
+      value: mostRecentReport["buy"]
+    })
+  }
+  if ("hold" in mostRecentReport) {
+    graphData.push({
+      option: "hold",
+      value: mostRecentReport["hold"]
+    })
+  }
+  if ("sell" in mostRecentReport) {
+    graphData.push({
+      option: "sell",
+      value: mostRecentReport["sell"]
+    })
+  }
+  if ("strongSell" in mostRecentReport) {
+    graphData.push({
+      option: "strongSell",
+      value: mostRecentReport["strongSell"]
+    })
+  }
+  result["graphData"] = graphData
+  console.log(result);
+  return result
+}

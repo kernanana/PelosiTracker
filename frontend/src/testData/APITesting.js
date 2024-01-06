@@ -1,4 +1,4 @@
-import {getFakeInsiderData, getMarketDatafromProfit, convertTwelveDataQuoteData } from "./DataConversions"
+import {getFakeInsiderData, getMarketDatafromProfit, convertTwelveDataQuoteData, convertFinnhubQuoteData, getAnalystRecommendationFromFinnhub } from "./DataConversions"
 import { getFakeMarketData, mockConvertTwelveDataQuoteData, getMockAnalystData, getMockInsiderSentiments } from "./testData"
 const basePath = "https://finnhub.io/api/v1"
 const apiKey = "cj006i1r01qlkaevun50cj006i1r01qlkaevun5g"
@@ -104,14 +104,16 @@ export const getInsiderSentiment = async(symbol) => {
 }
 
 export const getStockQuote = async(symbol) => {
-    if(useTestData || true) {
+    if(useTestData) {
         const result = mockConvertTwelveDataQuoteData(symbol)
         return result
     }
 
     try {
-        const twelveDataKey = '74a6354a508c46b1a0178a88d04fa449'
-        const url = `https://api.twelvedata.com/quote?symbol=AAPL&apikey=${twelveDataKey}`
+        // const twelveDataKey = '74a6354a508c46b1a0178a88d04fa449'
+        // const url = `https://api.twelvedata.com/quote?symbol=AAPL&apikey=${twelveDataKey}`
+        const secondFinnhubAccountAPIKey = 'cmc85k1r01qpbvb59efgcmc85k1r01qpbvb59eg0'
+        const url = `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${secondFinnhubAccountAPIKey}`
         console.log("using this api call:", url);
         const response = await fetch(url)
     
@@ -122,7 +124,8 @@ export const getStockQuote = async(symbol) => {
     
         const result = await response.json()
         console.log(`twelveData for ${symbol} eod`, result);
-        const reorganizeResult = convertTwelveDataQuoteData(result)
+        // const reorganizeResult = convertTwelveDataQuoteData(result)
+        const reorganizeResult = convertFinnhubQuoteData(symbol, result)
         return reorganizeResult
     } catch {
         const errResult = {
@@ -137,6 +140,38 @@ export const getStockQuote = async(symbol) => {
 }
 
 export const getAnalystRecommendation = async(symbol) => {
-    const result = getMockAnalystData(symbol)
-    return result
+    if(useTestData){
+        const result = getMockAnalystData(symbol)
+        return result
+    }
+    try {
+        const result = await getAnalystRecommendationFromFinnhub(symbol)
+        return result
+    } catch {
+        const result = {
+            date: "No recent sentiments found",
+            graphData: [{
+              option: "strongBuy",
+              value: 0
+            },
+            {
+              option: "buy",
+              value: 0
+            },
+            {
+              option: "hold",
+              value: 0
+            },
+            {
+              option: "sell",
+              value: 0
+            },
+            {
+              option: "strongSell",
+              value: 0
+            }]
+        }
+        return result
+    }
+
 }
