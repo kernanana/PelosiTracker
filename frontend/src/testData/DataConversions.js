@@ -75,42 +75,39 @@ export const getMarketDatafromProfit = async(symbol, fromDate) => {
 
 
 
-export const combineGraphData = (stockData, insiderData) => {
-  let output = []
+export const combineGraphData = (stockData) => {
+  let min = -1
+  let max = 0
+  let graphData = []
   for (const [key, val] of Object.entries(stockData)) {
+    if (max == 0 || val > max) {
+      max = val
+    }
+    if (min == -1 || val < min) {
+      min = val
+    }
     let newDataEntry = {
       date: key,
       value: val
     }
-    if (key in insiderData) {
-      if ("sell" in insiderData[key]) {
-        const sellData = insiderData[key]["sell"]
-        newDataEntry["sell"] = sellData
-      }
-      if ("buy" in insiderData[key]) {
-        const buyData = insiderData[key]["buy"]
-        newDataEntry["buy"] = buyData
-      }
-    }
-    output.push(newDataEntry)
+    // if (key in insiderData) {
+    //   if ("sell" in insiderData[key]) {
+    //     const sellData = insiderData[key]["sell"]
+    //     newDataEntry["sell"] = sellData
+    //   }
+    //   if ("buy" in insiderData[key]) {
+    //     const buyData = insiderData[key]["buy"]
+    //     newDataEntry["buy"] = buyData
+    //   }
+    // }
+    graphData.push(newDataEntry)
   }
-  // for (const [key, val] of Object.entries(insiderData)) {
-  //   if (!(key in stockData)) {
-  //     let newDataEntry = {
-  //       date: key,
-  //     }
-  //     if ("sell" in insiderData[key]) {
-  //       const sellData = insiderData[key]["sell"]
-  //       newDataEntry["sell"] = sellData
-  //     }
-  //     if ("buy" in insiderData[key]) {
-  //       const buyData = insiderData[key]["buy"]
-  //       newDataEntry["buy"] = buyData
-  //     }
-  //     output.push(newDataEntry)
-  //   }
-  // }
-  return output
+  const result = {
+    "graphData": graphData,
+    "min": min,
+    "max": max
+  } 
+  return result
 }
 
 export const convertTwelveDataQuoteData = (data) => {

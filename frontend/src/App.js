@@ -21,13 +21,15 @@ function App() {
   console.log("App component rerendered");
 
   useEffect(() => {
-    const combinedData = combineGraphData(stockGraphData, insiderGraphData);
-    setFinalGraphData(combinedData)
-    if (combinedData.length > 0) {
-      const currVal = combinedData[combinedData.length - 1]["value"]
+    console.log(stockGraphData);
+    const reformattedGraphData = combineGraphData(stockGraphData);
+    setFinalGraphData(reformattedGraphData)
+    const graphData = reformattedGraphData.graphData
+    if (graphData.length > 0) {
+      const currVal = graphData[graphData.length - 1]["value"]
       setCurrentValue(currVal)
     }
-  }, [timelineOption, stockGraphData, insiderGraphData])
+  }, [timelineOption, stockGraphData])
   
   useEffect(() => {
     console.log("data has been updated", 
