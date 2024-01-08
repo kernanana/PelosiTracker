@@ -34,7 +34,7 @@
     background: -webkit-linear-gradient(#FF8800, #FFAA00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 500;
     display: flex;
     align-items: center;
@@ -47,7 +47,7 @@
     background: -webkit-linear-gradient(#FF8800, #FFAA00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 500;
     display: flex;
     align-items: center;
@@ -136,7 +136,7 @@
     border-width: 0px;
     border-radius: 5px;
     background-color: #111;
-    font-size: 25px;
+    font-size: 23px;
     border: 1px solid #ccc;
     margin-top: 1px;
     color: #999;
@@ -159,8 +159,8 @@
 }
 
 .searchIcon {
-    font-size: 25px;
-    padding-top: 7px;
+    font-size: 20px;
+    padding-top: 5px;
     color: #888;
 }
 
@@ -174,7 +174,7 @@
     right: 0;
     /* padding: 10px; */
     /* border-radius: 0 5px 5px 0; */
-    padding-top: 4asdfpx;
+    padding-top: 6px;
     border: 0px;
     cursor: pointer;
     background-color: transparent;
@@ -198,7 +198,32 @@
 }
 
 @media (min-width: 1025px) {
-
+    .searchStockBar {
+        font-size: 25px;
+    }
+    .stockInfoItemLeft {
+        font-size: 18px;
+    }
+    .stockInfoItemRight {
+        font-size: 18px;
+    }
+    .rightUSDValue {
+        font-size: 18px;
+    }
+    .stockInfoHeader {
+        font-size: 22px;
+    }
+    .stockSearchHeader {
+        font-size: 22px;
+    }
+    .searchIcon {
+        font-size: 22px;
+        padding-top: 6px;
+    }
+    .clearSearchButton {
+        padding-top: 6px;
+        font-size: 22px;
+    }
 }
 
 @media (min-width: 1301px) {
@@ -222,6 +247,7 @@
     }
     .searchIcon {
         font-size: 25px;
+        padding-top: 8px;
     }
     .clearSearchButton {
         padding-top: 8px;

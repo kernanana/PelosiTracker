@@ -129,9 +129,9 @@ export const convertFinnhubQuoteData = (symbol, data) => {
   try {
     const result = {
       symbol: symbol,
-      value: data.c,
-      change: data.d,
-      percentChange: data.dp
+      value: convertToHundrethsAndAddSuffix(data.c),
+      change: convertToHundrethsAndAddSuffix(data.d),
+      percentChange: convertToHundrethsAndAddSuffix(data.dp)
     }
     return result
   } catch (err) {

@@ -23,7 +23,7 @@
   cursor: pointer;
   display: inline-block;
   font-family: Tahoma, sans-serif;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 550;
   width: 20%;
   /* line-height: 1.5; */
@@ -50,7 +50,9 @@
 }
 
 @media (min-width: 1025px) {
-
+  .tlButton {
+    font-size: 18px;
+  }
 }
 
 @media (min-width: 1301px) {

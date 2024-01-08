@@ -15,8 +15,8 @@
 }
 
 .meImage {
-    height: 50vh;
-    border-radius: 2px;
+    height: 60vh;
+    border-radius: 5px;
     margin-right: 3%;
     box-shadow: 15px 10px 10px #111;
 }
@@ -26,13 +26,13 @@
     height: 50%;
     color: #CCC;
     font-family: Tahoma, sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: left;
 }
 
 .aboutHeaderImage {
     width: 40%;
-    height: 50vh;
+    height: 60vh;
 }
 
 .highlight {
@@ -45,4 +45,56 @@
 
 .empty {
     height: 10vh;
+}
+
+
+@media (max-width: 768px) {
+    .aboutHeaderContainer {
+        flex-direction: column;
+    }
+    .aboutHeaderIntroduction {
+        width: 90%;
+        margin: auto;
+        margin-top: 25px;
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+    .meImage {
+        height: 70vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .aboutHeaderContainer {
+        flex-direction: column;
+    }
+    .aboutHeaderIntroduction {
+        width: 90%;
+        margin: auto;
+        margin-top: 25px;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    .meImage {
+        height: 60vh;
+    }
+}
+
+
+@media (min-width: 1025px) {
+    .meImage {
+        height: 55vh;
+    }
+    .aboutHeaderIntroduction {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1301px) {
+    .meImage {
+        height: 40vh;
+    }
+    .aboutHeaderIntroduction {
+        font-size: 22px;
+    }
 }

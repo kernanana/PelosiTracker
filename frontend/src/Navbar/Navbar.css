@@ -59,6 +59,15 @@
     transition: .2s;
 }
 
+@media (max-width: 480px) {
+    .navHeader {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+}
+
 @media (min-width: 1301px) {
     .navHeader {
         margin-left: 10px;

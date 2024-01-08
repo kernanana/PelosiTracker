@@ -17,8 +17,20 @@ function StockNews({ newsData , setstockTicker, setStockName, timelineOption, se
     setStockName(newsData.fullName)
     console.log('set graph to', newsData.newsHeader);
     const newGraphData = await getInfoOnSymbol(stockQuote.symbol, timelineOption)
+    const todaysDate = formatTodaysDate()
+    newGraphData[todaysDate] = stockQuote.value
+    console.log(newGraphData);
     setStockGraphData(newGraphData)
   };
+
+  const formatTodaysDate = () => {
+    let a = new Date(Date.now());
+    let year = a.getFullYear();
+    let month = a.getMonth() + 1
+    let day = a.getDate()
+    let finalDate = year + '-' + month + '-' + day
+    return finalDate
+  }
 
   useEffect(() => {
     const fetchStockData = async () => {

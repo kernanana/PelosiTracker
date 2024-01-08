@@ -59,7 +59,7 @@ const Search = ({ticker, timelineOption, setTicker, setStockGraphData, setStockN
                     <input type="text"
                     value={input}
                     className="searchStockBar"
-                    placeholder="Search a symbol..."
+                    placeholder="Search symbol..."
                     onChange={(event) => {
                         setInput(event.target.value)
                     }}

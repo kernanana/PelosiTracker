@@ -27,9 +27,9 @@
     background: -webkit-linear-gradient(#FF8800, #FFAA00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 20px;
+    font-size: 21px;
     font-weight: 500;
-    height: 20%;
+    height: 25%;
     width: 100%;
 }
 
@@ -62,7 +62,6 @@ F
     align-items: center;
     height: 25%;
     width: 100%;
-    
     font-size: 20px;
 }
 
@@ -122,17 +121,18 @@ F
     display: flex;
     justify-content: space-between;
     border-top: 1px solid #CCC;
+    font-size: 15px;
 }
 
 .insiderInfoItemLeft {
-    margin-left: 20px;
+    margin-left: 14px;
     margin-top: auto;
     margin-bottom: auto;
     color:  #CCC;
 }
 
 .insiderInfoItemRight {
-    margin-right: 20px;
+    margin-right: 14px;
     margin-top: auto;
     margin-bottom: auto;
     color:  #AAA;
@@ -144,6 +144,26 @@ F
 }
 
 .negativeColor {
-    color: rgb(139, 0, 0);
-    font-weight: 700;
+    color: rgb(209, 52, 52);
+    font-weight: 600;
+}
+
+@media (min-width: 1025px) {
+    .insiderInfoRow {
+        font-size: 15px;
+    }
+    .insiderHeader {
+        font-size: 22px;
+        font-weight: 500;
+    }
+}
+
+@media (min-width: 1301px) {
+    .insiderInfoRow {
+        font-size: 20px;
+    }
+    .insiderHeader {
+        font-size: 25px;
+        font-weight: 500;
+    }
 }

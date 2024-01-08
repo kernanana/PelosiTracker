@@ -38,3 +38,43 @@
     border: dashed 1px;
     margin: 0px;
 }
+
+@media (max-width: 480px) {
+    .experienceContainer {
+        height: 40%;
+        width: 80%;
+    }
+    .experienceHeader {
+        font-size: 24px;
+    }
+    .experienceBulletList {
+        font-size: 22px;
+    }
+    .experienceBody {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .experienceContainer {
+        height: 40%;
+        width: 80%;
+    }
+    .experienceHeader {
+        font-size: 24px;
+    }
+    .experienceBulletList {
+        font-size: 22px;
+    }
+    .experienceBody {
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 1025px) {
+
+}
+
+@media (min-width: 1301px) {
+
+}

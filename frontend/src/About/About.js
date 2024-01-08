@@ -13,7 +13,7 @@ function About() {
                 <div>
                     At the start of this site's development, I had  
                     put off learning two very important skills for the modern software engineer:
-                    <span className='highlight'> (1)</span> learning React and <span className='highlight'>(2)</span> managing retirement account investments. This project represents a creative effort 
+                    <span className='highlight'> (1)</span> learning React and <span className='highlight'>(2)</span> managing retirement account investments. This project is an effort 
                     to kill both birds with one stone.
                     <br></br><br></br>
                     <span className='highlight'>IMPORTANT:</span> It's worth mentioning that I am currently a 4th year undergrad student at Rose-Hulman Institute of 
