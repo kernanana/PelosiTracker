@@ -26,7 +26,7 @@ function Chart({finalGraphData}) {
                       </linearGradient>
                     </defs>
                     <XAxis dataKey="date"/>
-                    <YAxis yAxisId="stock" orientation="left" label={{ value: 'Stock Value (USD)', angle: 90, position: 'insideLeft'}}/>
+                    <YAxis yAxisId="stock" orientation="left" label={{ value: 'Stock Value (USD)', angle: 90, position: 'insideLeft'}} domain={[490,520]}/>
                     <YAxis yAxisId="insider" orientation="right" label={{ value: 'Shares Bought', angle: 90, position: 'insideRight' }}></YAxis>
                     <Tooltip />
                     <Legend />
