@@ -100,3 +100,53 @@
 .negativeValue {
     color: rgb(139, 0, 0);
 }
+
+@media (max-width: 480px) {
+    /* CSS that should be displayed if width is equal to or less than 800px goes here */
+}
+
+@media (max-width: 768px) {
+    /* CSS that should be displayed if width is equal to or less than 800px goes here */
+}
+
+@media (min-width: 1025px) {
+    .overlayHeaderCurrency {
+        font-size: 15px;
+        margin: 10px;
+    }
+    .overlayHeader {
+        font-size: 20px;
+        margin-top: 4px;
+        margin-left: 5px
+    }
+    .overlayCurrentPrice {
+        font-size: 40px;
+    }
+    .overlayPriceChangeValue {
+        font-size: 18px;
+    }
+    .overlayPriceChangePercent {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1301px) {
+    .overlayHeaderCurrency {
+        font-size: 18px;
+        margin: 12px;
+    }
+    .overlayHeader {
+        font-size: 24px;
+        margin-top: 5px;
+        margin-left: 8px
+    }
+    .overlayCurrentPrice {
+        font-size: 50px;
+    }
+    .overlayPriceChangeValue {
+        font-size: 21px;
+    }
+    .overlayPriceChangePercent {
+        font-size: 21px;
+    }
+}
