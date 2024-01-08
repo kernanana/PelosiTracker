@@ -192,6 +192,9 @@
 }
 
 @media (max-width: 480px) {
+    .stockInfoContainer {
+        width: 40%;
+    }
 }
 
 @media (max-width: 768px) {

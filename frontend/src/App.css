@@ -60,3 +60,23 @@
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 480px) {
+  .ccContainer {
+    flex-direction: column-reverse;
+  }
+  .scContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  /* CSS that should be displayed if width is equal to or less than 800px goes here */
+}
+
+@media (min-width: 1025px) {
+}
+
+@media (min-width: 1301px) {
+}
