@@ -7,6 +7,7 @@
 .notSelected {
     border-color: black;
     color: #BBB;
+    border: 1px #222;
 }
 
 .tlButtonContainer {
@@ -23,7 +24,7 @@
   display: inline-block;
   font-family: Tahoma, sans-serif;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 550;
   width: 20%;
   /* line-height: 1.5; */
   outline: transparent;
@@ -40,4 +41,20 @@
 
 .tlButton:not([disabled]):hover {
   box-shadow: 0 0 .4rem rgba(0, 0, 0, 0.5), -.125rem -.125rem .5rem rgba(239, 71, 101, 0.5), .125rem .125rem .5rem rgba(255, 154, 90, 0.5);
+}
+
+@media (max-width: 480px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (min-width: 1025px) {
+
+}
+
+@media (min-width: 1301px) {
+  .tlButton {
+    font-size: 20px;
+  }
 }

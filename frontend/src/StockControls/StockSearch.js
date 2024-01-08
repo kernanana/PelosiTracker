@@ -2,8 +2,7 @@ import React, {useState, useEffect} from "react";
 import SearchResults from "./StockSearchResults";
 import { searchSymbols } from "../testData/APITesting";
 import "./StockControls.css"
-import { IconContext } from "react-icons/lib";
-import { IoIosSearch } from "react-icons/io";
+import { IoSearch } from "react-icons/io5";
 
 // const mockSearchResults = {
 //     count: 4,
@@ -55,14 +54,12 @@ const Search = ({ticker, timelineOption, setTicker, setStockGraphData, setStockN
             <div className="searchBoxWithIcon">
                 <div className="searchBarContainer">
                     <div className="searchIcon">
-                        <IconContext.Provider value={{size: 20}}>
-                            <IoIosSearch />
-                        </IconContext.Provider>
+                        <IoSearch className="searchIcon"/>
                     </div>
                     <input type="text"
                     value={input}
                     className="searchStockBar"
-                    placeholder="Search for a stock..."
+                    placeholder="Search a symbol..."
                     onChange={(event) => {
                         setInput(event.target.value)
                     }}

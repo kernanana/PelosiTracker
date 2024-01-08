@@ -18,7 +18,7 @@ function StockControls({stockTicker, stockName, currentValue, setstockTicker, ti
         <div className="top stockCardContainer" >
             <div className='stockInfoContainer stockSearchContainer'>
                 <div className='stockSearchBox'>
-                    <div className='stockInfoHeader'>
+                    <div className='stockSearchHeader'>
                         Stock Search
                     </div>
                     <div className="preventSearchResultOverflow"> </div>
@@ -29,15 +29,12 @@ function StockControls({stockTicker, stockName, currentValue, setstockTicker, ti
                                         setTimelineOption={setTimelineOption}
                                         setStockGraphData={setStockGraphData}
                         ></TimelineOptions>
-                        <div className="preventSearchResultOverflow2"> </div>
-                        <div>
                         <StockSearch ticker={stockTicker}
                                     timelineOption={timelineOption}
                                     setTicker={setstockTicker}
                                     setStockGraphData={setStockGraphData}
                                     setStockName={setStockName}
                         ></StockSearch>
-                        </div>
                     </div>
                 </div>
             </div>

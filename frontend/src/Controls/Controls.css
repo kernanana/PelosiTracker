@@ -86,25 +86,6 @@ F
     width: 80%;
 }
 
-.clearSearchButton {
-    position: absolute;
-    top: 0;
-    right: 0;
-    /* padding: 10px; */
-    /* border-radius: 0 5px 5px 0; */
-    padding-top: 4asdfpx;
-    border: 0px;
-    cursor: pointer;
-    background-color: transparent;
-    color: white;
-    background-repeat:no-repeat;
-    font-size: 18px;
-}
-
-.clearSearchButton:hover {
-    color: #FF8800;
-}
-
 .searchIcon {
     position: absolute;
     top: 0;

@@ -25,6 +25,7 @@
 
 .stockSearchBox {
     height: 100%;
+    width: 90%;
 }
 
 .stockInfoHeader {
@@ -35,10 +36,26 @@
     -webkit-text-fill-color: transparent;
     font-size: 20px;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stockSearchHeader {
+    height: 30%;
+    width: 100%;
+    background: -webkit-linear-gradient(#FF8800, #FFAA00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .preventSearchResultOverflow {
-    height: 10%;
+    height: 0dvh;
     width: 100%;
 }
 
@@ -98,8 +115,9 @@
     align-items: center;
     height: 100%;
     /* overflow: visible; */
-    width: 100%;
+    width: 90%;
     padding: 1px;
+    margin-top: 5px;
 }
 
 .searchBoxWithIcon {
@@ -107,7 +125,6 @@
     display: inline-block;
     width: 80%;
 }
-
 
 .searchBarContainer {
     width: 100%;
@@ -119,7 +136,7 @@
     border-width: 0px;
     border-radius: 5px;
     background-color: #111;
-    font-size: 20px;
+    font-size: 25px;
     border: 1px solid #ccc;
     margin-top: 1px;
     color: #999;
@@ -141,10 +158,73 @@
     /* z-index: 100; */
 }
 
+.searchIcon {
+    font-size: 25px;
+    padding-top: 7px;
+    color: #888;
+}
+
 .searchResultOption:hover {
     /* background-color: #ccc; */
 }
 
+.clearSearchButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* padding: 10px; */
+    /* border-radius: 0 5px 5px 0; */
+    padding-top: 4asdfpx;
+    border: 0px;
+    cursor: pointer;
+    background-color: transparent;
+    color: #DDD;
+    background-repeat:no-repeat;
+    font-size: 18px;
+}
+
+.clearSearchButton:hover {
+    color: #FF8800;
+}
+
 .searchBarWithButton {
     display: flex;
+}
+
+@media (max-width: 480px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (min-width: 1025px) {
+
+}
+
+@media (min-width: 1301px) {
+    .searchStockBar {
+        font-size: 30px;
+    }
+    .stockInfoItemLeft {
+        font-size: 22px;
+    }
+    .stockInfoItemRight {
+        font-size: 22px;
+    }
+    .rightUSDValue {
+        font-size: 22px;
+    }
+    .stockInfoHeader {
+        font-size: 25px;
+    }
+    .stockSearchHeader {
+        font-size: 25px;
+    }
+    .searchIcon {
+        font-size: 25px;
+    }
+    .clearSearchButton {
+        padding-top: 8px;
+        font-size: 22px;
+    }
 }
