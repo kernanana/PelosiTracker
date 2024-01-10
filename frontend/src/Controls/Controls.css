@@ -156,14 +156,37 @@ F
         width: 90%;
         height: 100%;
         margin-top: 10px;
-        margin-bottom: 30px;
+    }
+    .lastContainer {
+        margin-bottom: 45px;
     }
     .insiderHeader {
         height: 30%;
     }
+    .analystChart {
+        height: 120px;
+    }
+    .insiderInfoItemLeft {
+        margin-left: 10px;
+    }
+    .insiderInfoItemRight {
+        margin-right: 10px;
+    }
 }
 
 @media (max-width: 768px) {
+    .insiderHeader {
+        height: 30%;
+    }
+    .insiderInfoRow {
+        height: 27%;
+    }
+    .insiderInfoItemLeft {
+        margin-left: 5px;
+    }
+    .insiderInfoItemRight {
+        margin-right: 5px;
+    }
 }
 
 @media (min-width: 1025px) {

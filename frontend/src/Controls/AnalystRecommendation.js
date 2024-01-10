@@ -44,7 +44,7 @@ function AnalystRecommendation({currentStock}) {
     return (
         <div className='insiderContainer insiderSearchContainer'>
             <div className='insiderHeader'>Analyst Sentiments</div>
-            <div className='insiderItemContainer insiderInfoContainer'>
+            <div className='insiderItemContainer insiderInfoContainer analystChart'>
                 <ResponsiveContainer width="100%" height="100%">
                     <BarChart
                     // width={500}

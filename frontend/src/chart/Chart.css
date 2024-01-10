@@ -22,6 +22,8 @@
     position: absolute;
 }
 
-.chart {
-    /* width: 70vh; */
+@media (max-width: 768px) {
+    .stockTableContainer {
+        height: 300px;
+    }
 }

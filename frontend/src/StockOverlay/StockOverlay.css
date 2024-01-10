@@ -104,7 +104,7 @@
 @media (max-width: 480px) {
     /* CSS that should be displayed if width is equal to or less than 800px goes here */
     .overlayContainer {
-        display: none;
+        /* display: none; */
     }
     .overlayUnit {
         background-color: #111;

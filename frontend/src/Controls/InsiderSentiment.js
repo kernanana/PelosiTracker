@@ -52,7 +52,7 @@ function InsiderSentiment({currentStock}) {
     }, [currentStock])
 
     return(
-        <div className='insiderContainer'>
+        <div className='insiderContainer lastContainer'>
             <div className='insiderHeader'>
                 Insider Sentiments
             </div>
