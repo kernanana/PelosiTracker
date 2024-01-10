@@ -1,5 +1,5 @@
 .overlayContainer {
-    margin-top: 30px;
+
     display: flex;
     justify-content: space-between;
     height: 20%;
@@ -103,10 +103,37 @@
 
 @media (max-width: 480px) {
     /* CSS that should be displayed if width is equal to or less than 800px goes here */
+    .overlayContainer {
+        display: none;
+    }
+    .overlayUnit {
+        background-color: #111;
+    }
+    .overlayPriceChangeValue {
+        display: none;
+    }
+    .overlayPriceChangePercent {
+        display: none;
+    }
+    .overlayCurrentPrice {
+        font-size: 20px;
+    }
+    .overlayHeaderImage {
+        width: 30%;
+    }
+    .overlayHeaderCurrency {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
-    /* CSS that should be displayed if width is equal to or less than 800px goes here */
+    .overlayContainer {
+        width: 95%;
+        margin: auto;
+    }
+    .overlayUnitContainer {
+        width: 25%;
+    }
 }
 
 @media (min-width: 1025px) {
@@ -141,7 +168,7 @@
         margin-left: 8px
     }
     .overlayCurrentPrice {
-        font-size: 50px;
+        font-size: 60px;
     }
     .overlayPriceChangeValue {
         font-size: 21px;

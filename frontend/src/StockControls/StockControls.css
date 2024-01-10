@@ -193,11 +193,31 @@
 
 @media (max-width: 480px) {
     .stockInfoContainer {
-        width: 40%;
+        width: 90%;
+        margin: 0px;
+        height: 100%;
+    }
+    .stockCardContainer {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        flex-direction: column;
+    }
+    .stockSearchContainer {
+        height: 30%;
+        width: 90%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .stockInfoHeader {
+        height: 25%;
     }
 }
 
 @media (max-width: 768px) {
+    .searchBoxWithIcon {
+        width: 95%;
+    }
 }
 
 @media (min-width: 1025px) {

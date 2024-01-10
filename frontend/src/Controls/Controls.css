@@ -148,6 +148,24 @@ F
     font-weight: 600;
 }
 
+@media (max-width: 480px) {
+    .insiderCardContainer {
+        flex-direction: column-reverse;
+    }
+    .insiderContainer {
+        width: 90%;
+        height: 100%;
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+    .insiderHeader {
+        height: 30%;
+    }
+}
+
+@media (max-width: 768px) {
+}
+
 @media (min-width: 1025px) {
     .insiderInfoRow {
         font-size: 15px;

@@ -46,7 +46,7 @@ function App() {
     <div className="App">
       <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage}></Navbar>
       {(currentPage === "Home") ? 
-      <>
+      <div className='everything'>
       <StockOverlay 
         setstockTicker={setstockTicker} 
         setStockName={setStockName} 
@@ -55,31 +55,32 @@ function App() {
         >  
       </StockOverlay>
       <div className="ccContainer">
-      
-        <div className='chartContainer'>
-          <Chart finalGraphData={finalGraphData}></Chart>
-          <Controls
-            currentStock={stockTicker}
-            currentValue={currentValue}
-            timelineOption={timelineOption}
-            insiderName={insiderName}
-            setInsiderName={setInsiderName}
-            setInsiderGraphData={setInsiderGraphData}></Controls>
-        </div>
-        <div className='scContainer'>
-          <StockControls stockTicker={stockTicker}
-                        stockName={stockName}
-                        currentValue={currentValue}
-                        setstockTicker={setstockTicker}
-                        setStockGraphData={setStockGraphData}
-                        timelineOption={timelineOption}
-                        setTimelineOption={setTimelineOption}
-                        setInsiderName={setInsiderName}
-                        setInsiderGraphData={setInsiderGraphData}
-                        setStockName={setStockName}></StockControls>
+        <div className='reorderContainer'>
+          <div className='chartContainer'>
+            <Chart finalGraphData={finalGraphData}></Chart>
+            <Controls
+              currentStock={stockTicker}
+              currentValue={currentValue}
+              timelineOption={timelineOption}
+              insiderName={insiderName}
+              setInsiderName={setInsiderName}
+              setInsiderGraphData={setInsiderGraphData}></Controls>
+          </div>
+          <div className='scContainer'>
+            <StockControls stockTicker={stockTicker}
+                          stockName={stockName}
+                          currentValue={currentValue}
+                          setstockTicker={setstockTicker}
+                          setStockGraphData={setStockGraphData}
+                          timelineOption={timelineOption}
+                          setTimelineOption={setTimelineOption}
+                          setInsiderName={setInsiderName}
+                          setInsiderGraphData={setInsiderGraphData}
+                          setStockName={setStockName}></StockControls>
+          </div>
         </div>
       </div>
-      </> :
+      </div> :
       <About></About>
     }
 

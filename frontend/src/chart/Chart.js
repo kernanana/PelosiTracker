@@ -26,11 +26,11 @@ function Chart({finalGraphData}) {
                       </linearGradient>
                     </defs>
                     <XAxis dataKey="date" />
-                    <YAxis yAxisId="stock" orientation="left" label={{ value: 'Stock Value (USD)', angle: 90, position: 'insideLeft'}} 
+                    <YAxis yAxisId="stock" orientation="left" label={{ value: 'Value (USD)', angle: 90, position: 'insideLeft'}} 
                       domain={[Math.floor(finalGraphData.min - (finalGraphData.min * .005)), Math.ceil(finalGraphData.max + (finalGraphData.max * .005))]}/>
                     {/* <YAxis yAxisId="insider" orientation="right" label={{ value: 'Shares Bought', angle: 90, position: 'insideRight' }}></YAxis> */}
                     <Tooltip />
-                    <Legend />
+                    {/* <Legend /> */}
                     <Area yAxisId="stock" type="monotone" dataKey="value" fill="url(#color)" stroke="#FF5B00">
                     
                     </Area>

@@ -36,6 +36,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
+  margin: 1px;
 }
 
 
@@ -47,6 +48,10 @@
 }
 
 @media (max-width: 768px) {
+  .tlButton {
+    width: 22%;
+    font-size: 14px;
+  }
 }
 
 @media (min-width: 1025px) {
