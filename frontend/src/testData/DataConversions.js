@@ -43,7 +43,7 @@ export const formatFromDateForProfitAPI = (fromDate) => {
   return finalDate
 }
 
-const formatTodaysDate = () => {
+export const formatTodaysDate = () => {
   let a = new Date(Date.now());
   let year = a.getFullYear();
   let month = a.getMonth() + 1

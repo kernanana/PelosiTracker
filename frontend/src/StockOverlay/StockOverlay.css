@@ -1,7 +1,7 @@
 .overlayContainer {
 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 20%;
 }
 
@@ -101,6 +101,34 @@
     color: rgb(209, 52, 52);
 }
 
+
+
+@media (max-width: 768px) {
+    .overlayContainer {
+        width: 95%;
+        margin: auto;
+    }
+    .overlayUnitContainer {
+        width: 20%;
+    }
+    .overlayPriceChangeValue {
+        display: none;
+    }
+    .overlayPriceChangePercent {
+        display: none;
+    }
+    .overlayHeaderImage {
+        width: 30px;
+        margin-left: 1px;
+    }
+    .overlayCurrentPrice {
+        font-size: 35px;
+    }
+    .overlayHeaderCurrency {
+        display: none;
+    }
+}
+
 @media (max-width: 480px) {
     /* CSS that should be displayed if width is equal to or less than 800px goes here */
     .overlayContainer {
@@ -119,20 +147,11 @@
         font-size: 20px;
     }
     .overlayHeaderImage {
-        width: 30%;
+        width: 20px;
+        margin-left: 1px;
     }
     .overlayHeaderCurrency {
         display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .overlayContainer {
-        width: 95%;
-        margin: auto;
-    }
-    .overlayUnitContainer {
-        width: 25%;
     }
 }
 
@@ -155,6 +174,9 @@
     .overlayPriceChangePercent {
         font-size: 18px;
     }
+    .overlayHeaderImage {
+        min-width: 25px;
+    }
 }
 
 @media (min-width: 1301px) {
@@ -168,12 +190,15 @@
         margin-left: 8px
     }
     .overlayCurrentPrice {
-        font-size: 60px;
+        font-size: 65px;
     }
     .overlayPriceChangeValue {
         font-size: 21px;
     }
     .overlayPriceChangePercent {
         font-size: 21px;
+    }
+    .overlayHeaderImage {
+        min-width: 20px;
     }
 }
