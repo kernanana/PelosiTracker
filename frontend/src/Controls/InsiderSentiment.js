@@ -53,8 +53,10 @@ function InsiderSentiment({currentStock}) {
 
     return(
         <div className='insiderContainer lastContainer'>
-            <div className='insiderHeader'>
-                Insider Sentiments
+            <div className='insiderHeaderContainer'>
+                <div className='insiderHeader'>
+                    Insider Sentiments
+                </div>
             </div>
             <div className='insiderItemContainer insiderInfoContainer'>
                 <InsiderInfoRow name="Date of Recording" value={insiderSentiments.dateRecorded} positive={null}></InsiderInfoRow>
