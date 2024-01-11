@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-kernansstockwatch-dev-144710-authRole",
+      "UnauthRoleArn": "arn:aws:iam::905418472578:role/amplify-kernansstockwatch-dev-144710-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::905418472578:role/amplify-kernansstockwatch-dev-144710-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-kernansstockwatch-dev-144710-deployment",
+      "UnauthRoleName": "amplify-kernansstockwatch-dev-144710-unauthRole",
+      "StackName": "amplify-kernansstockwatch-dev-144710",
+      "StackId": "arn:aws:cloudformation:us-east-1:905418472578:stack/amplify-kernansstockwatch-dev-144710/36227ea0-b0ba-11ee-9db7-12a323dc6c1f",
+      "AmplifyAppId": "dft8hzjj1afjd"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "dft8hzjj1afjd",
+          "type": "cicd"
+        }
+      }
+    }
+  }
+}
