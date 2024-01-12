@@ -140,6 +140,7 @@
     }
     .overlayUnitContainer {
         width: 50%;
+        margin-bottom: 4px;
     }
     .overlayUnit {
         background-color: #111;
