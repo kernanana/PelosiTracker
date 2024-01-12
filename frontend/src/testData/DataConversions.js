@@ -143,7 +143,7 @@ export const convertFinnhubQuoteData = (symbol, data) => {
 
 export const convertToHundrethsAndAddSuffix = (str) => {
   const num = Number(str)
-  return Number(num.toFixed(2))
+  return num.toFixed(2)
 }
 
 export const getAnalystRecommendationFromFinnhub = async(symbol) => {
