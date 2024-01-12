@@ -53,7 +53,24 @@ function StockNews({ newsData , setstockTicker, setStockName, timelineOption, se
   );
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="overlayUnitContainer" onClick={setGraphDataToNewStock}>
+    <div className="overlayUnit">
+      <div className="overlayHeaderContainer">
+        <div className="overlayHeaderImage">
+          <img className="stockLogo" src={newsData.logoImage} alt="" />
+        </div>
+        <div className="overlayHeader">Loading...</div>
+        <div className="overlayHeaderCurrency">USD</div>
+      </div>
+      <div className="overlayCPriceContainer">
+        <div className="overlayCurrentPrice">$-</div>
+      </div>
+      <div className="overlayPriceChangesContainer">
+        <div className="overlayPriceChangeValue">$-</div>
+        <div className="overlayPriceChangePercent">-%</div>
+      </div>
+    </div>
+  </div>;
   }
 
   return (

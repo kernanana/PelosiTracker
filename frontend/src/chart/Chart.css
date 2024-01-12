@@ -22,8 +22,15 @@
     position: absolute;
 }
 
+
 @media (max-width: 768px) {
     .stockTableContainer {
         height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stockTableContainer {
+        margin-bottom: 0px;
     }
 }

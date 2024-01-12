@@ -166,7 +166,7 @@ F
     .insiderContainer {
         width: 90%;
         height: 100%;
-        margin-top: 10px;
+        margin-top: 20px;
     }
     .lastContainer {
         margin-bottom: 45px;
@@ -176,6 +176,9 @@ F
     }
     .analystChart {
         height: 120px;
+    }
+    .insiderInfoRow {
+        min-height: 30px;
     }
     .insiderInfoItemLeft {
         margin-left: 10px;
