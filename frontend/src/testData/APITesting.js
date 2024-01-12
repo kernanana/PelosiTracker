@@ -3,7 +3,7 @@ import { getFakeMarketData, mockConvertTwelveDataQuoteData, getMockAnalystData, 
 const basePath = "https://finnhub.io/api/v1"
 const apiKey = "cj006i1r01qlkaevun50cj006i1r01qlkaevun5g"
 
-const useTestData = true
+const useTestData = false
 
 export const searchSymbols = async(query) => {
     const url = `${basePath}/search?q=${query}&token=${apiKey}`
