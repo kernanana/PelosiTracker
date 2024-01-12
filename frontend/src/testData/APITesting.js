@@ -75,7 +75,7 @@ export const getInsiderSentiment = async(symbol) => {
 
     if (!response.ok) {
         const errData = {
-            dateRecorded: "No Recent Sentiments Found",
+            dateRecorded: "No Recent Data",
             mspr: "-",
             netChange: "-" 
         }
@@ -98,7 +98,7 @@ export const getInsiderSentiment = async(symbol) => {
         }
     } catch (err) {
         const errData = {
-            dateRecorded: "No Recent Sentiments Found",
+            dateRecorded: "No Recent Data",
             mspr: "-",
             netChange: "-" 
         }
@@ -133,7 +133,7 @@ export const getStockQuote = async(symbol) => {
     } catch {
         const errResult = {
             symbol: symbol,
-            value: "$-",
+            value: "-",
             change: "-",
             percentChange: "-"
         }
@@ -152,7 +152,7 @@ export const getAnalystRecommendation = async(symbol) => {
         return result
     } catch {
         const result = {
-            date: "No recent sentiments found",
+            date: "No Recent Data",
             graphData: [{
               option: "strongBuy",
               value: 0
