@@ -212,6 +212,9 @@
     .stockInfoHeader {
         height: 25%;
     }
+    .searchBoxWithIcon {
+        width: 90%;
+    }
 }
 
 @media (max-width: 768px) {
