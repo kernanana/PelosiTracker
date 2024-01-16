@@ -26,9 +26,16 @@ function StockNews({ newsData , setstockTicker, setStockName, timelineOption, se
   const formatTodaysDate = () => {
     let a = new Date(Date.now());
     let year = a.getFullYear();
-    let month = a.getMonth() + 1
-    let day = a.getDate()
+    let month = (a.getMonth() + 1).toString()
+    if (month.length == 1) {
+      month = "0" + month 
+    }
+    let day = a.getDate().toString()
+    if (day.length == 1) {
+      day = "0" + day
+    }
     let finalDate = year + '-' + month + '-' + day
+    console.log(finalDate);
     return finalDate
   }
 

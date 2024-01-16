@@ -52,6 +52,38 @@ export const formatTodaysDate = () => {
   return finalDate
 }
 
+export const getHistoricalDataFromTwelve = async(symbol, fromDate) => {
+  const formattedFromDate = formatFromDateForProfitAPI(fromDate)
+  const twelveDataKey = '74a6354a508c46b1a0178a88d04fa449'
+  const url = `https://api.twelvedata.com/time_series?symbol=${symbol}&interval=1day&start_date=${formattedFromDate}&apikey=${twelveDataKey}`
+  console.log(url);
+  const response = await fetch(url, 
+    {"Access-Control-Allow-Origin": "*"})
+  if (!response.ok) {
+    const message = `Error: ${response.status}`
+    throw new Error(message)
+  }
+
+  const jsonResponse = await response.json()
+  console.log(jsonResponse);
+  const result = reorganizeTwelveHistoricalData(jsonResponse)
+  return result
+}
+
+const reorganizeTwelveHistoricalData = (rawData) => {
+  let output = {}
+  const rawDatavalues = rawData.values
+  for (let i = rawDatavalues.length - 1; i > -1 ; i--) {
+    let dateRecorded = rawDatavalues[i]["datetime"]
+    const stockValue = convertToHundrethsAndAddSuffix(rawDatavalues[i]["open"])
+    output[dateRecorded] = stockValue
+  }
+  console.log("reorganized TwelveData Graph Data", output);
+  return output
+
+
+}
+
 export const getMarketDatafromProfit = async(symbol, fromDate) => {
     const realDomain = "https://api.profit.com"
     const msURL = `${realDomain}/data-api/market-data/historical/daily/`
@@ -61,7 +93,11 @@ export const getMarketDatafromProfit = async(symbol, fromDate) => {
     const url =`${msURL}${symbol}?token=${msAPIKey}&start_date=${formattedFromDate}&end_date=${formattedToDate}`
     console.log(url);
     const response = await fetch(url, 
-      {"Access-Control-Allow-Origin": "*"});
+      {"Access-Control-Allow-Origin": "https://api.profit.com",
+      "Access-Control-Allow-Headers": "Content-Type",
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+      "Access-Control-Allow-Credentials": true,
+      "credentials": "include"});
     if (!response.ok) {
         const message = `Error: ${response.status}`
         throw new Error(message)

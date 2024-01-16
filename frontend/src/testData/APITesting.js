@@ -1,4 +1,4 @@
-import {getFakeInsiderData, getMarketDatafromProfit, convertTwelveDataQuoteData, convertFinnhubQuoteData, getAnalystRecommendationFromFinnhub, formatTodaysDate } from "./DataConversions"
+import {getFakeInsiderData, getMarketDatafromProfit, convertTwelveDataQuoteData, convertFinnhubQuoteData, getAnalystRecommendationFromFinnhub, formatTodaysDate, getHistoricalDataFromTwelve } from "./DataConversions"
 import { getFakeMarketData, mockConvertTwelveDataQuoteData, getMockAnalystData, getMockInsiderSentiments } from "./testData"
 const basePath = "https://finnhub.io/api/v1"
 const apiKey = "cj006i1r01qlkaevun50cj006i1r01qlkaevun5g"
@@ -27,10 +27,8 @@ export const getInfoOnSymbol = async(symbol, fromDate) => {
     }
     
     try {
-        let result = await getMarketDatafromProfit(symbol, fromDate)
-        const todaysQuote = await getStockQuote(symbol)
-        const today = formatTodaysDate()
-        result[today] = todaysQuote.value
+        // let result = await getMarketDatafromProfit(symbol, fromDate)
+        let result = await getHistoricalDataFromTwelve(symbol, fromDate)
         console.log("new stock datapoints", result);
         return result
     } catch {
