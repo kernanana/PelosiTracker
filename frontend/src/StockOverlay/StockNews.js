@@ -100,7 +100,7 @@ function StockNews({ newsData , setstockTicker, setStockName, timelineOption, se
             <div className="overlayPriceChangeValue">+${stockQuote.change}</div>
           ) : (
             <div className="negativeValue overlayPriceChangeValue">
-              -${stockQuote.change * -1}
+              -${Number(stockQuote.change * -1).toFixed(2)}
             </div>
           )}
           {stockQuote.percentChange === '-' ||
