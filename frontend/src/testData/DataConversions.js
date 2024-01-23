@@ -215,31 +215,31 @@ const reorganizeAnalystSentimentsFromFinnhub = (data) => {
   let graphData = []
   if ("strongBuy" in mostRecentReport) {
     graphData.push({
-      option: "strongBuy",
+      option: "Buy+",
       value: mostRecentReport["strongBuy"]
     })
   }
   if ("buy" in mostRecentReport) {
     graphData.push({
-      option: "buy",
+      option: "Buy",
       value: mostRecentReport["buy"]
     })
   }
   if ("hold" in mostRecentReport) {
     graphData.push({
-      option: "hold",
+      option: "Hold",
       value: mostRecentReport["hold"]
     })
   }
   if ("sell" in mostRecentReport) {
     graphData.push({
-      option: "sell",
+      option: "Sell",
       value: mostRecentReport["sell"]
     })
   }
   if ("strongSell" in mostRecentReport) {
     graphData.push({
-      option: "strongSell",
+      option: "Sell+",
       value: mostRecentReport["strongSell"]
     })
   }

@@ -207,7 +207,7 @@
         flex-direction: column;
     }
     .stockSearchContainer {
-        height: 30%;
+        height: 100px;
         width: 95%;
         margin-top: 20px;
         margin-bottom: 20px;
