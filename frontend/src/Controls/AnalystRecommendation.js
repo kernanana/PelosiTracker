@@ -8,23 +8,23 @@ import { getAnalystRecommendation } from '../testData/APITesting';
 function AnalystRecommendation({currentStock}) {
     const colors = ['rgb(23, 111, 55)', 'green', 'rgb(185, 139, 29)', 'rgb(147, 54, 54)', 'rgb(139, 0, 0)'];
     const [graphData, setGraphData] = useState([{
-        option: "strongBuy",
+        option: "Buy+",
         value: 0
     },
     {
-        option: "buy",
+        option: "Buy",
         value: 0
     },
     {
-        option: "hold",
+        option: "Hold",
         value: 0
     },
     {
-        option: "sell",
+        option: "Sell",
         value: 0
     },
     {
-        option: "strongSell",
+        option: "Sell+",
         value: 0
     }]
 

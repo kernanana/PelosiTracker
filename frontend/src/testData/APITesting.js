@@ -152,23 +152,23 @@ export const getAnalystRecommendation = async(symbol) => {
         const result = {
             date: "No Recent Data",
             graphData: [{
-              option: "strongBuy",
+              option: "Buy+",
               value: 0
             },
             {
-              option: "buy",
+              option: "Buy",
               value: 0
             },
             {
-              option: "hold",
+              option: "Hold",
               value: 0
             },
             {
-              option: "sell",
+              option: "Sell",
               value: 0
             },
             {
-              option: "strongSell",
+              option: "Sell+",
               value: 0
             }]
         }
