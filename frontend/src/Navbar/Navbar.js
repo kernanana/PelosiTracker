@@ -9,7 +9,10 @@ function Navbar({currentPage, setCurrentPage}) {
   
     const controlNavbar = () => {
         const currentScrollY = window.scrollY;
-        if (currentScrollY > lastScrollY) {
+        if (currentScrollY == 0) {
+          setShowNavbar(true)
+        }
+        else if ((currentScrollY > lastScrollY)) {
           setShowNavbar(false);
         } else {
           setShowNavbar(true);
