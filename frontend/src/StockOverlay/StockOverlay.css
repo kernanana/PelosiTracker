@@ -160,6 +160,9 @@
         margin-bottom: 3px;
         margin-right: 10px;
     }
+    .overlayHeader {
+        width: 75%;
+    }
     .overlayCurrentPrice {
         font-size: 35px;
     }
@@ -170,6 +173,7 @@
     .overlayHeaderCurrency {
         display: block;
         font-size: 12px;
+        width: 15%;
     }
     .stockLogo {
         min-height: 12px;
