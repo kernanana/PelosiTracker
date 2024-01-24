@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 100%;
+    width: 90%;
     height: 100%;
 }
 
@@ -162,6 +162,7 @@ F
 @media (max-width: 480px) {
     .insiderCardContainer {
         flex-direction: column-reverse;
+        width: 100%;
     }
     .insiderContainer {
         width: 95%;
